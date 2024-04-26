@@ -1,7 +1,7 @@
 -- List Sales Person by Order of Their Contribution
 --
 -- SQL Server Version: SQL Server 2019
---			 Data Use: Microsoft's [AdventureWorks2019]
+-- Data Use: Microsoft's [AdventureWorks2019]
 --
 -- This demonstration query (c) Jim Sproul 2024
 --
