@@ -9,7 +9,8 @@
 --    each peron's YTD sales
 --
 WITH [TotalSales] AS
-	(SELECT p.[FirstName]
+	(SELECT p.BusinessEntityID
+		    ,p.[FirstName]
 			,p.[LastName]
 			,SUM(sp.[SalesYTD]) OVER(PARTITION BY p.[FirstName], p.[LastName]) AS [Total YTD Sales]
 		FROM [AdventureWorks2019].[Sales].[SalesPerson] sp
@@ -23,11 +24,7 @@ select ts.[FirstName] as [First Name]
 		,FORMAT(ROUND(ts.[Total YTD Sales],2),'C','en-us') AS [Total YTD Sales]
 		,FORMAT(ROUND(MAX(ts.[Total YTD Sales]) OVER(),2),'C','en-us') AS [Sales  Leader(s) YTD Sales]
 		,(ts.[Total YTD Sales]/MAX(ts.[Total YTD Sales]) OVER())*100 AS [% of Sales  Leader(s)]
-		, CASE 
-			WHEN ts.[Total YTD Sales] = MAX(ts.[Total YTD Sales]) OVER() 
-				THEN '<<'
-			ELSE ' '
-		  END [Sales Leader(s)]
+		, ROW_NUMBER() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
 	FROM [TotalSales] ts 
 ORDER BY ts.[Total YTD Sales] DESC
 
