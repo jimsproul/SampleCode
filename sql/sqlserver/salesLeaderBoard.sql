@@ -26,5 +26,5 @@ select ts.[FirstName] as [First Name]
 		,(ts.[Total YTD Sales]/MAX(ts.[Total YTD Sales]) OVER())*100 AS [% of Sales  Leader(s)]
 		, ROW_NUMBER() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
 	FROM [TotalSales] ts 
-ORDER BY ts.[Total YTD Sales] DESC
+ORDER BY 2,1 DESC
 
