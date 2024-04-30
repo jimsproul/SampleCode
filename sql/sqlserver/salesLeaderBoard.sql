@@ -16,15 +16,17 @@ WITH [TotalSales] AS
 		FROM [AdventureWorks2019].[Sales].[SalesPerson] sp
 		JOIN [AdventureWorks2019].[Person].[Person] p ON p.[BusinessEntityID] = sp.[BusinessEntityID])
 --
--- Now use the results of the CTE to determine the each
---    person's YTD total sales with the sales leader's total
+-- Now use the results of the CTE to determine what each
+--    person's YTD total sales are as a percent of the
+--    sales leader's totalhen calculate their rank no the sales team
 --
 select ts.[FirstName] as [First Name]
 		,ts.[LastName] as [Last Name]
 		,FORMAT(ROUND(ts.[Total YTD Sales],2),'C','en-us') AS [Total YTD Sales]
 		,FORMAT(ROUND(MAX(ts.[Total YTD Sales]) OVER(),2),'C','en-us') AS [Sales  Leader(s) YTD Sales]
 		,(ts.[Total YTD Sales]/MAX(ts.[Total YTD Sales]) OVER())*100 AS [% of Sales  Leader(s)]
-		, ROW_NUMBER() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
+		, RANK() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
 	FROM [TotalSales] ts 
 ORDER BY 2,1 DESC
+
 
