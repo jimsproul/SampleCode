@@ -25,7 +25,7 @@ select ts.[FirstName] as [First Name]
 		,FORMAT(ROUND(ts.[Total YTD Sales],2),'C','en-us') AS [Total YTD Sales]
 		,FORMAT(ROUND(MAX(ts.[Total YTD Sales]) OVER(),2),'C','en-us') AS [Sales  Leader(s) YTD Sales]
 		,(ts.[Total YTD Sales]/MAX(ts.[Total YTD Sales]) OVER())*100 AS [% of Sales  Leader(s)]
-		, RANK() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
+		, DENSE_RANK() OVER( ORDER BY ts.[Total YTD Sales] DESC)  AS [Sales Leader(s) Rank]
 	FROM [TotalSales] ts 
 ORDER BY 2,1 DESC
 
