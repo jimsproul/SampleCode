@@ -6,7 +6,6 @@ In account select VPC service
 
 **Region** us-east-1
 **Name** co-vpc-01
-
 **CIDR** 10.1.0.0/16
 
 ### Create Subnets
@@ -20,7 +19,6 @@ In this example setting up for AZs 1a, 1b and 1c
 **Name** co-subnet-az#
 
 **VPC** co-vpc-01
-
 **AZ** Select one 
 
 **Subnet CIDR** 10.1.#.0/24 where # is sequence of subnet
@@ -28,9 +26,7 @@ In this example setting up for AZs 1a, 1b and 1c
 #### Create Internet Gateway
 
 **Name** co-gateway-01
-
 Then attach to VPC
-
 **Attach to** co-vpc-01
 
 #### Attach Gateway to route Table
