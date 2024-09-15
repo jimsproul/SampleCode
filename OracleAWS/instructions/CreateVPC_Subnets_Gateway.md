@@ -51,7 +51,7 @@ Click ==Add Route==
 Click ==Save Changes==
 
 
-**NEXT** [Create an EC2 instance] (Create_An_EC2_Instance.md)
+**NEXT** [[Create_An_EC2_Instance.md]]
 
 
 
