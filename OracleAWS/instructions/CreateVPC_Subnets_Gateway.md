@@ -47,5 +47,11 @@ Click ==Add Route==
 **Destination** 0.0.0.0/0
 
 **Target** select "Internet Gateway" and chose gateway just chosen (ID shows, not name)
+
 Click ==Save Changes==
+
+
+**NEXT** [[Create an EC2 instance]]
+
+
 
