@@ -26,7 +26,7 @@ In this example setting up for AZs 1a, 1b and 1c
 
 **Subnet CIDR** 10.1.#.0/24 where # is sequence of subnet
 
-#### Create Internet Gateway
+### Create Internet Gateway
 
 **Name** co-gateway-01
 
