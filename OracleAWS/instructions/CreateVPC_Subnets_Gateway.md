@@ -5,9 +5,7 @@ In account select VPC service
 ### Create VPC
 
 **Region** us-east-1
-
 **Name** co-vpc-01
-
 **CIDR** 10.1.0.0/16
 
 ### Create Subnets
